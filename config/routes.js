@@ -9,13 +9,10 @@ module.exports = require('lib/wiring/routes')
 
 // standards RESTful routes
 .resources('examples')
-.resources('profiles', { only: ['index', 'show', 'destroy', 'create'] })
-.patch('/update-profile/:id', 'profiles#update')
-.patch('/upload-profile-image/:id', 'profiles#uploadimg')
+.resources('profiles')
+.resources('buckets')
+.resources('uploads', { only: ['create'] })
 
-.resources('buckets', { only: ['index', 'show', 'destroy', 'create'] })
-.patch('/update-bucket/:id', 'buckets#update')
-.patch('/upload-bucket-image/:id', 'buckets#uploadimg')
 
 // users of the app have special requirements
 .post('/sign-up', 'users#signup')

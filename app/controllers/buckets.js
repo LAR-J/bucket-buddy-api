@@ -1,12 +1,10 @@
 'use strict';
 
 const controller = require('lib/wiring/controller');
-const multer = require('app/middleware').multer;
 
 const models = require('app/models');
 const Bucket = models.bucket;
 
-const upload = require('lib/aws-s3-upload');
 const authenticate = require('./concerns/authenticate');
 
 const index = (req, res, next) => {
@@ -45,20 +43,6 @@ const update = (req, res, next) => {
     .catch(err => next(err));
 };
 
-const uploadimg = (req, res, next) => {
-  upload.awsUpload(req.file.buffer)
-  .then((response) => {
-    return {
-      bucketPicture: response.Location,
-    };
-  })
-  .then((upload) => {
-    return Bucket.update(upload);
-  })
-  .then(upload => res.json({ upload }))
-  .catch(err => next(err));
-};
-
 const destroy = (req, res, next) => {
   let search = { _id: req.params.id, _owner: req.currentUser._id };
   Bucket.findOne(search)
@@ -79,8 +63,6 @@ module.exports = controller({
   create,
   update,
   destroy,
-  uploadimg,
 }, { before: [
-  { method: multer.single('upload[file]'), only : ['uploadimg'] },
   { method: authenticate, except: ['index', 'show'] },
 ], });

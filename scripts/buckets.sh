@@ -1,25 +1,25 @@
-lmWrbfrA5l1F5P/+hoPaurmmtj7es4fpNHHbjg4pG5o=--2fNDUwjjkaIF7vs7DBCdiD6bFYJ37I2esPrAarODXpY=
+85Sfel/IjKneyDNLFVaHMG2mMwmLhvRaLkxGGsHofOI=--m7xYvs4MrhcXdTNplWo94LGRBVPdFHRN5uKETg153/A=
 
 curl --include --request POST http://localhost:3000/buckets \
---header "Authorization: Token token=lmWrbfrA5l1F5P/+hoPaurmmtj7es4fpNHHbjg4pG5o=--2fNDUwjjkaIF7vs7DBCdiD6bFYJ37I2esPrAarODXpY="   \
+--header "Authorization: Token token=85Sfel/IjKneyDNLFVaHMG2mMwmLhvRaLkxGGsHofOI=--m7xYvs4MrhcXdTNplWo94LGRBVPdFHRN5uKETg153/A="   \
 --header "Content-Type: application/json"  \
 --data '{
     "bucket": {
-      "title": "Bucket 5",
-      "category": "sport",
-      "description": "ima bucket item!"
+      "title": "bucket test #2",
+      "category": "food"
     }
 }'
 
-curl --include --request PATCH http://localhost:3000/buckets/57852dc437afa41052a88fe0 \
---header "Authorization: Token token=0nT3YuAzzxNP0wERqupejWGqs4hwU4TFHXX/WsNuqus=--sIPOcQVuFweAPdl1vNgRCOSVsbFA+ud+zUGUML7ZJDg="   \
+curl --include --request PATCH http://localhost:3000/update-bucket/57853c47538760dc57656934 \
+--header "Authorization: Token token=85Sfel/IjKneyDNLFVaHMG2mMwmLhvRaLkxGGsHofOI=--m7xYvs4MrhcXdTNplWo94LGRBVPdFHRN5uKETg153/A="   \
 --header "Content-Type: application/json"  \
 --data '{
     "bucket": {
-      "title": "Stuff",
-      "category": "food"
+      "bucketPicture": "http://dlkghls;fkdjfghkjdhgkdhjgkd.png"
     }
 }'
 
   curl --include --request DELETE http://localhost:3000/buckets/5785179ab3dd33f354e5f834 \
     --header "Authorization: Token token=xm+P6ntdduyFU4BKBLR80gCc1j5mdk9cAM0wLgSWGZ8=--ucsA1C4ocB65CIglK0DgYUU7UDJ7tcEEY32r7SPr1m0="
+
+curl --include --request GET http://localhost:3000/buckets

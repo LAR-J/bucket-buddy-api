@@ -1,7 +1,6 @@
-XsBkplfnnAKFCKvPWiznIm5kEcln81M4GhEoUZoIInA=--dVdpShvfzlh+2SUPe2TOgpaUVvzFuFKG6pX3872qdYY=
-
+7Exug4PhCGfzsq1KKOPAvcqFLimmkwDaM8LMa9Ah4ow=--8CZhrhkRugRPaGVSjJg9MXCUyXOLU8Ci7xrQVk6BBcQ=
 curl --include --request POST http://localhost:3000/profiles \
---header "Authorization: Token token=2bXnOEbvHc8hB4oPDOvQgPGF6t6SGA7QLv9IMNgtMQk=--pIYQORL7ZI9w8sHgRQ7IVx5314kpo5/JV2KnTGHePNM="   \
+--header "Authorization: Token token=7Exug4PhCGfzsq1KKOPAvcqFLimmkwDaM8LMa9Ah4ow=--8CZhrhkRugRPaGVSjJg9MXCUyXOLU8Ci7xrQVk6BBcQ="   \
 --header "Content-Type: application/json"  \
 --data '{
     "profile": {
@@ -11,11 +10,11 @@ curl --include --request POST http://localhost:3000/profiles \
 
 
 curl --include --request POST http://localhost:3000/profiles \
---header "Authorization: Token token=2bXnOEbvHc8hB4oPDOvQgPGF6t6SGA7QLv9IMNgtMQk=--pIYQORL7ZI9w8sHgRQ7IVx5314kpo5/JV2KnTGHePNM="   \
+--header "Authorization: Token token=85Sfel/IjKneyDNLFVaHMG2mMwmLhvRaLkxGGsHofOI=--m7xYvs4MrhcXdTNplWo94LGRBVPdFHRN5uKETg153/A="   \
 --header "Content-Type: application/json"  \
 --data '{
   "profile": {
-    "username": "AndreaSantarlasci3",
+    "username": "profile2",
     "name": {
       "firstName": "Andrea",
       "lastName": "S"

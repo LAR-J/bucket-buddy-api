@@ -1,8 +1,6 @@
 'use strict';
 
-// const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
-// const uniqueValidator = require('mongoose-unique-validator');
 
 const profileSchema = new mongoose.Schema({
   username: {
