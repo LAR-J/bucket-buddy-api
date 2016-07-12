@@ -1,12 +1,12 @@
 'use strict';
 
 const controller = require('lib/wiring/controller');
-//const multer = require('app/middleware').multer;
+const multer = require('app/middleware').multer;
 
 const models = require('app/models');
 const Bucket = models.bucket;
 
-//const upload = require('lib/aws-s3-upload');
+const upload = require('lib/aws-s3-upload');
 const authenticate = require('./concerns/authenticate');
 
 const index = (req, res, next) => {
@@ -30,21 +30,6 @@ const create = (req, res, next) => {
     .catch(err => next(err));
 };
 
-// const uploadimg = (req, res, next) => {
-//   upload.awsUpload(req.file.buffer)
-//   .then((response) => {
-//     return {
-//       bucketPicture: response.Location,
-//     };
-//   })
-//   .then(upload => res.json({ upload }))
-//   .then((upload) => {
-//     return Bucket.update(upload);
-//   })
-//   .catch(err => next(err));
-// };
-
-
 const update = (req, res, next) => {
   let search = { _id: req.params.id, _owner: req.currentUser._id };
   Bucket.findOne(search)
@@ -58,6 +43,20 @@ const update = (req, res, next) => {
         .then(() => res.sendStatus(200));
     })
     .catch(err => next(err));
+};
+
+const uploadimg = (req, res, next) => {
+  upload.awsUpload(req.file.buffer)
+  .then((response) => {
+    return {
+      bucketPicture: response.Location,
+    };
+  })
+  .then((upload) => {
+    return Bucket.update(upload);
+  })
+  .then(upload => res.json({ upload }))
+  .catch(err => next(err));
 };
 
 const destroy = (req, res, next) => {
@@ -80,8 +79,8 @@ module.exports = controller({
   create,
   update,
   destroy,
-//  uploadimg,
+  uploadimg,
 }, { before: [
-//  { method: multer.single('upload[file]'), only : ['uploadimg'] },
+  { method: multer.single('upload[file]'), only : ['uploadimg'] },
   { method: authenticate, except: ['index', 'show'] },
 ], });

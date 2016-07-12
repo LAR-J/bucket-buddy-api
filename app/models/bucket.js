@@ -18,6 +18,9 @@ const bucketSchema = new mongoose.Schema({
   link: String,
   tags: [String],
   deadline: Number,
+  bucketPicture: {
+    type: String,
+  },
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

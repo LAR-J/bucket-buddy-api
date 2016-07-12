@@ -37,10 +37,10 @@ const uploadimg = (req, res, next) => {
       profilePicture: response.Location,
     };
   })
-  .then(upload => res.json({ upload }))
   .then((upload) => {
     return Profile.update(upload);
   })
+  .then(upload => res.json({ upload }))
   .catch(err => next(err));
 };
 

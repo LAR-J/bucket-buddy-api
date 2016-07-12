@@ -13,7 +13,9 @@ module.exports = require('lib/wiring/routes')
 .patch('/update-profile/:id', 'profiles#update')
 .patch('/upload-profile-image/:id', 'profiles#uploadimg')
 
-.resources('buckets')
+.resources('buckets', { only: ['index', 'show', 'destroy', 'create'] })
+.patch('/update-bucket/:id', 'buckets#update')
+.patch('/upload-bucket-image/:id', 'buckets#uploadimg')
 
 // users of the app have special requirements
 .post('/sign-up', 'users#signup')
