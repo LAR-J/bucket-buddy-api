@@ -19,3 +19,16 @@ curl --include --request POST http://localhost:3000/sign-up \
       "password_confirmation": "an example password"
     }
   }'
+
+
+
+
+
+    curl --include --request POST http://localhost:3000/sign-in \
+      --header "Content-Type: application/json" \
+      --data '{
+        "credentials": {
+          "email": "andrea@andrea.com",
+          "password": "Andrea"
+        }
+      }'
