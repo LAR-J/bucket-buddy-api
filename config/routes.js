@@ -13,6 +13,8 @@ module.exports = require('lib/wiring/routes')
 .patch('/update-profile/:id', 'profiles#update')
 .patch('/upload-profile-image/:id', 'profiles#uploadimg')
 
+.resources('buckets')
+
 // users of the app have special requirements
 .post('/sign-up', 'users#signup')
 .post('/sign-in', 'users#signin')
