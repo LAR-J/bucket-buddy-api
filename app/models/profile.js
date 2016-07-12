@@ -36,7 +36,7 @@ const profileSchema = new mongoose.Schema({
   },
   profilePicture: {
     type: String
-  }
+  },
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
