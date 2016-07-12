@@ -10,6 +10,16 @@ curl --include --request POST http://localhost:3000/buckets \
     }
 }'
 
+curl --include --request PATCH http://localhost:3000/buckets/5785179ab3dd33f354e5f834 \
+--header "Authorization: Token token=xm+P6ntdduyFU4BKBLR80gCc1j5mdk9cAM0wLgSWGZ8=--ucsA1C4ocB65CIglK0DgYUU7UDJ7tcEEY32r7SPr1m0="   \
+--header "Content-Type: application/json"  \
+--data '{
+    "bucket": {
+      "title": "Stuff",
+      "category": "food"
+    }
+}'
+
 
 curl --include --request POST http://localhost:3000/profiles \
 --header "Authorization: Token token=2bXnOEbvHc8hB4oPDOvQgPGF6t6SGA7QLv9IMNgtMQk=--pIYQORL7ZI9w8sHgRQ7IVx5314kpo5/JV2KnTGHePNM="   \
@@ -60,5 +70,5 @@ curl --include --request PATCH http://localhost:3000/update-profile/5785011a14f0
     }
   }'
 
-  curl --include --request DELETE http://localhost:3000/profiles/5784ee20e231e06e41bd6ee7 \
-    --header "Authorization: Token token=8MiB8Cw/LlONmizkB8HBFSHdzcV7eNycFJnrkWixYh0=--mh8WfI2t4G2rxtz+kdTxXBWx3ujLZ/6TOHlMv3SOPac="
+  curl --include --request DELETE http://localhost:3000/buckets/5785179ab3dd33f354e5f834 \
+    --header "Authorization: Token token=xm+P6ntdduyFU4BKBLR80gCc1j5mdk9cAM0wLgSWGZ8=--ucsA1C4ocB65CIglK0DgYUU7UDJ7tcEEY32r7SPr1m0="
