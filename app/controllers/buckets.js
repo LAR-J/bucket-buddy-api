@@ -7,8 +7,14 @@ const Bucket = models.bucket;
 
 const authenticate = require('./concerns/authenticate');
 
-const index = (req, res, next) => {
+const allbuckets = (req, res, next) => {
   Bucket.find()
+    .then(buckets => res.json({ buckets }))
+    .catch(err => next(err));
+};
+
+const userbuckets = (req, res, next) => {
+  Bucket.find( { _owner: req.currentUser._id } )
     .then(buckets => res.json({ buckets }))
     .catch(err => next(err));
 };
@@ -58,11 +64,12 @@ const destroy = (req, res, next) => {
 };
 
 module.exports = controller({
-  index,
+  allbuckets,
+  userbuckets,
   show,
   create,
   update,
   destroy,
 }, { before: [
-  { method: authenticate, except: ['index', 'show'] },
+  { method: authenticate, except: ['allbuckets', 'show'] },
 ], });
