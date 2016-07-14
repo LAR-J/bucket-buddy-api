@@ -8,10 +8,12 @@ const Profile = models.profile;
 const authenticate = require('./concerns/authenticate');
 
 const index = (req, res, next) => {
-  Profile.find()
-    .then(profiles => res.json({ profiles }))
+  let search = { _owner: req.currentUser._id };
+  Profile.findOne(search)
+    .then(profile => profile ? res.json({ profile }) : next())
     .catch(err => next(err));
 };
+
 
 const show = (req, res, next) => {
   Profile.findById(req.params.id)
@@ -64,5 +66,5 @@ module.exports = controller({
   update,
   destroy,
 }, { before: [
-    { method: authenticate, except: ['index', 'show'] },
+    { method: authenticate, except: ['show'] },
 ], });

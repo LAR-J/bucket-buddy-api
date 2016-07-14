@@ -10,7 +10,9 @@ module.exports = require('lib/wiring/routes')
 // standards RESTful routes
 .resources('examples')
 .resources('profiles')
-.resources('buckets')
+.get('/allbuckets', 'buckets#allbuckets')
+.get('/userbuckets', 'buckets#userbuckets')
+.resources('buckets', { except: 'index'})
 .resources('uploads', { only: ['create'] })
 
 
