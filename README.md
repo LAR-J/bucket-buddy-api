@@ -1,14 +1,10 @@
 #README
 
-
-#README
-
 The Bucket Buddy is a single page application that can be used to
 cache user bucket list items.  People dream of things that they want
 to do before they expire, and they keep track of them with our application!
 
 Routes:
-
 .root('root#root')
 .resources('examples')
 .resources('profiles')
