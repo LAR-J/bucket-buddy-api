@@ -5,6 +5,7 @@ cache user bucket list items.  People dream of things that they want
 to do before they expire, and they keep track of them with our application!
 
 Routes:
+
 .root('root#root')
 .resources('examples')
 .resources('profiles')
