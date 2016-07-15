@@ -4,8 +4,8 @@ The Bucket Buddy is a single page application that can be used to
 cache user bucket list items.  People dream of things that they want
 to do before they expire, and they keep track of them with our application!
 
-Routes:
-
+##Routes:
+```
 .root('root#root')
 .resources('examples')
 .resources('profiles')
@@ -18,7 +18,7 @@ Routes:
 .delete('/sign-out/:id', 'users#signout')
 .patch('/change-password/:id', 'users#changepw')
 .resources('users', { only: ['index', 'show'] })
-
+```
 Deployed back-end app:
 https://bucket-buddy-api.herokuapp.com/
 
